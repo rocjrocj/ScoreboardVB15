@@ -1,0 +1,218 @@
+﻿@model ScoreboardVB15.Models.ScoreboardVBModels
+
+@{
+    ViewBag.Title = "KeepScore";
+}
+
+<h2>KeepScore</h2>
+<h3>@Html.DisplayFor(model => model.MatchName)</h3>
+
+<div class="row">
+    <div class="col-md-6">
+        <h5>@Html.DisplayFor(model => model.HomeTeam)</h5>
+        <h1 id="HomeScore">@Html.DisplayFor(model => model.HomeScore)</h1>
+        <div><button id="HomeScoreMinus">-</button> <button id="HomeScorePlus">+</button></div>
+    </div>
+    <div class="col-md-6">
+        <h5>@Html.DisplayFor(model => model.GuestTeam)</h5>
+        <h1 id="GuestScore">@Html.DisplayFor(model => model.GuestScore)</h1>
+        <div><button id="GuestScoreMinus">-</button> <button id="GuestScorePlus">+</button></div>
+    </div>
+</div>
+
+@*<div>
+    <h4>ScoreboardVBModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MatchName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatchName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HomeTeam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomeTeam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HomeScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomeScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuestTeam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuestTeam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuestScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuestScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SetNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SetNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Set1Winner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Set1Winner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Set2Winner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Set2Winner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Set3Winner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Set3Winner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MatchCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatchCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MatchUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatchUpdated)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@
+
+
+
+@section scripts {
+    <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script>
+        var simple = $.connection.scoreboardVBHub;
+        simple.client.showMessage = function (message) {
+            console.log(message);
+            //$('#scoreVB').text(message);
+        }
+
+        //var message = $('#HomeScore').text();
+        //var team;
+
+        $.connection.hub.start().done(function () {
+            //simple.server.showMessage(message);
+            var arrUrl = window.location.href.split('/');
+            var path = arrUrl.pop();
+            var room = "room" + path;
+            console.log(room);
+            simple.server.joinRoom(room);
+
+            $('#HomeScorePlus').click(function () {
+                console.log("#HomeScorePlus was clicked.");
+                var message = $('#HomeScore').text();
+                message = Number(++message);
+                var team = "home";
+                $('#HomeScore').text(message);
+                console.log("message: " + message);
+                simple.server.sendMessage(message, team, room);
+                // save data to api
+                //e.preventDefault();
+                var apiurl = "http://localhost:49854/api/ScoreboardVBModelsApi/" + path;
+                //var data = {
+                //    StudentID: $("#txtStudentID").val().trim(),
+                //    StudentName: $("#txtStudentName").val().trim(),
+                //    Email: $("#txtEmail").val().trim(),
+                //    City: $("#txtCity").val().trim(),
+                //    Contact: $("#txtContact").val().trim(),
+                //    Country: $("#txtCountry").val().trim(),
+                //}
+                var json = @Html.Raw(Json.Encode(Model));
+                console.log("json: " + JSON.stringify(json));
+                json.HomeScore = message;
+                console.log("json updated: " + JSON.stringify(json));
+                //json.s
+                $.ajax({
+                    url: apiurl,
+                    type: 'PUT',
+                    dataType: 'application/json',
+                    data: json,
+                    success: function (d) {
+                        alert("Saved Successfully");
+                        //document.getElementById("postform").reset();
+                    },
+                    error: function (xhr) {
+                        alert("Error please try again" + xhr.statusCode);
+                    }
+                })
+            });
+
+            $('#HomeScoreMinus').click(function () {
+                console.log("#HomeScoreMinus was clicked.");
+                var message = $('#HomeScore').text();
+                message = Number(--message);
+                var team = "home";
+                $('#HomeScore').text(message);
+                console.log("message: " + message);
+                simple.server.sendMessage(message, team, room);
+            });
+
+            $('#GuestScorePlus').click(function () {
+                console.log("#GuestScorePlus was clicked.");
+                var message = $('#GuestScore').text();
+                message = Number(++message);
+                var team = "guest";
+                $('#GuestScore').text(message);
+                console.log("message: " + message);
+                simple.server.sendMessage(message, team, room);
+            });
+
+            $('#GuestScoreMinus').click(function () {
+                console.log("#GuestScoreMinus was clicked.");
+                var message = $('#GuestScore').text();
+                message = Number(--message);
+                var team = "guest";
+                $('#GuestScore').text(message);
+                console.log("message: " + message);
+                simple.server.sendMessage(message, team, room);
+            });
+        });
+        //});
+
+
+    </script>
+}

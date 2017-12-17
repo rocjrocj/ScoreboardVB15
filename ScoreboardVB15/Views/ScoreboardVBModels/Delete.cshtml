@@ -1,0 +1,112 @@
+﻿@model ScoreboardVB15.Models.ScoreboardVBModels
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ScoreboardVBModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MatchName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatchName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HomeTeam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomeTeam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HomeScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomeScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuestTeam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuestTeam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuestScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuestScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SetNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SetNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Set1Winner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Set1Winner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Set2Winner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Set2Winner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Set3Winner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Set3Winner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MatchCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatchCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MatchUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatchUpdated)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

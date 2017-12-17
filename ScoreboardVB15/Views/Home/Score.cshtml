@@ -1,0 +1,157 @@
+﻿@model ScoreboardVB15.Models.ScoreboardVBModels
+
+@{
+    ViewBag.Title = "Score";
+}
+
+<h2>Score</h2>
+<h3>@Html.DisplayFor(model => model.MatchName)</h3>
+
+<div class="row">
+    <div class="col-md-6">
+        <h5>@Html.DisplayFor(model => model.HomeTeam)</h5>
+        <h1 id="HomeScore">@Html.DisplayFor(model => model.HomeScore)</h1>
+    </div>
+    <div class="col-md-6">
+        <h5>@Html.DisplayFor(model => model.GuestTeam)</h5>
+        <h1 id="GuestScore">@Html.DisplayFor(model => model.GuestScore)</h1>
+    </div>
+</div>
+
+@*<div>
+    <h4>ScoreboardVBModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MatchName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatchName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HomeTeam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomeTeam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HomeScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomeScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuestTeam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuestTeam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuestScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuestScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SetNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SetNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Set1Winner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Set1Winner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Set2Winner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Set2Winner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Set3Winner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Set3Winner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MatchCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatchCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MatchUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatchUpdated)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@
+
+@section scripts {
+    <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script>
+        var simple = $.connection.scoreboardVBHub;
+
+        simple.client.showMessage = function (message, team) {
+            //alert(message);
+            if (team == "home") {
+                $('#HomeScore').text(message);
+            } else {
+                $('#GuestScore').text(message);
+            }
+        };
+
+        simple.client.addChatMessage = function (message) {
+            //alert(message);
+            console.log(message);
+        };
+
+        $.connection.hub.start().done(function () {
+            var arrUrl = window.location.href.split('/');
+            var room = "room" + arrUrl.pop();
+            console.log(room);
+            //simple.server.joinGroup(arrUrl.pop());
+            //simple.server.sendMessage("help me");
+            //simple.server.sendMessage("this sucks");
+            simple.server.joinRoom(room);
+        });
+
+        //simple.server.
+
+        //simple.s
+
+        //eventHub.server.joinGroup("my-awsm-group");
+        //$.connection.simpleHub.
+    </script>
+}

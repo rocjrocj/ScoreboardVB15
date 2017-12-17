@@ -1,0 +1,106 @@
+﻿@model ScoreboardVB15.Models.ScoreboardVBModels
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ScoreboardVBModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MatchName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatchName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HomeTeam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomeTeam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HomeScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomeScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuestTeam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuestTeam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuestScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuestScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SetNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SetNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Set1Winner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Set1Winner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Set2Winner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Set2Winner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Set3Winner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Set3Winner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MatchCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatchCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MatchUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatchUpdated)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
