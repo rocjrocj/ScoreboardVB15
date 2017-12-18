@@ -127,7 +127,11 @@
             //alert(message);
             if (team == "home") {
                 $('#HomeScore').text(message);
+            } else if (team == "guest") {
+                $('#GuestScore').text(message);
             } else {
+                // reset
+                $('#HomeScore').text(message);
                 $('#GuestScore').text(message);
             }
         };
