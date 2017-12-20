@@ -31,6 +31,13 @@ namespace ScoreboardVB15.Controllers
             return View();
         }
 
+        public ActionResult Feedback()
+        {
+            ViewBag.Message = "Your feedback page.";
+
+            return View();
+        }
+
         public ActionResult Score(int? id)
         {
             if (id == null)
