@@ -207,6 +207,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FeedbackModelsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ScoreboardVBModelsApiController.cs" />
@@ -223,6 +224,10 @@
     <Compile Include="Migrations\201712151638241_AddNullable.cs" />
     <Compile Include="Migrations\201712151638241_AddNullable.Designer.cs">
       <DependentUpon>201712151638241_AddNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712201945135_AddFeedbackModel.cs" />
+    <Compile Include="Migrations\201712201945135_AddFeedbackModel.Designer.cs">
+      <DependentUpon>201712201945135_AddFeedbackModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -306,6 +311,11 @@
     <Content Include="Views\Home\Score.cshtml" />
     <Content Include="Views\Home\KeepScore.cshtml" />
     <Content Include="Views\Home\Feedback.cshtml" />
+    <Content Include="Views\FeedbackModels\Create.cshtml" />
+    <Content Include="Views\FeedbackModels\Delete.cshtml" />
+    <Content Include="Views\FeedbackModels\Details.cshtml" />
+    <Content Include="Views\FeedbackModels\Edit.cshtml" />
+    <Content Include="Views\FeedbackModels\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -329,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712151638241_AddNullable.resx">
       <DependentUpon>201712151638241_AddNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712201945135_AddFeedbackModel.resx">
+      <DependentUpon>201712201945135_AddFeedbackModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

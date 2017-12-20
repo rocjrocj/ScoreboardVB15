@@ -31,5 +31,7 @@ namespace ScoreboardVB15.Models
         }
 
         public System.Data.Entity.DbSet<ScoreboardVB15.Models.ScoreboardVBModels> ScoreboardVBModels { get; set; }
+
+        public System.Data.Entity.DbSet<ScoreboardVB15.Models.FeedbackModels> FeedbackModels { get; set; }
     }
 }
