@@ -1,7 +1,33 @@
 ﻿@model IEnumerable<ScoreboardVB15.Models.ScoreboardVBModels>
 @{
+    Layout = "~/Views/Shared/_LayoutMDB.cshtml";
     ViewBag.Title = "Home Page";
 }
+
+<div>
+    <div class="flex-center"><h1><img src="https://png.icons8.com/volleyball/ios7/40/f3e5f5">&nbsp;ScoreboardVB</h1></div>
+    
+</div>
+
+<div>
+    <ul class="list-unstyled">
+        <li class="flex-center"><button type="button" class="btn btn-outline-secondary waves-effect white">Watch Match</button></li>
+        <li class="flex-center"><button type="button" class="btn btn-outline-secondary waves-effect white">Keep Score</button></li>
+        <li class="flex-center"><button type="button" class="btn btn-outline-secondary waves-effect white">Start New Match</button></li>
+    </ul>
+    
+    <h3>Current Matches</h3>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@item.MatchName: @Html.ActionLink("Watch", "Score", new { id = item.Id }) | @Html.ActionLink("Keep Score", "KeepScore", new { id = item.Id })</li>
+        }
+    </ul>
+</div>
+
+<div>
+    @Html.ActionLink("Create New Match", "Create", "ScoreboardVBModels")
+</div>
 
 @*<div class="jumbotron">
     <h1>ASP.NET</h1>
@@ -30,17 +56,3 @@
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
 </div>*@
-
-<div>
-    <h2>Current Matches</h2>
-    <ul>
-        @foreach (var item in Model)
-        {
-            <li>@item.MatchName: @Html.ActionLink("Watch", "Score", new { id = item.Id }) | @Html.ActionLink("Keep Score", "KeepScore", new { id = item.Id })</li>
-        }
-    </ul>
-</div>
-
-<div>
-    @Html.ActionLink("Create New Match", "Create", "ScoreboardVBModels")
-</div>
