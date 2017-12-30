@@ -23,7 +23,11 @@
 <div><p><button id="resetScore">Reset Score</button></p>
     <p>@Html.ActionLink("Edit Match Info", "Edit", "ScoreboardVBModels", new { id = Model.Id }, null)</p>
 </div>
-
+<div>
+    <p><button id="matchEnded">End Match</button></p>
+    @*<p>@Html.ActionLink("Edit Match Info", "Edit", "ScoreboardVBModels", new { id = Model.Id }, null)</p>*@
+</div>
+<br /><br />
 <div>
     <h4>ScoreboardVBModels</h4>
     <hr />
@@ -168,6 +172,7 @@
                 var json = @Html.Raw(Json.Encode(Model));
                 json.HomeScore = homeScore;
                 json.GuestScore = guestScore;
+                json.MatchUpdated = new Date($.now());
                 console.log('json: ' + JSON.stringify(json));
                 $.ajax({
                     url: apiUrl,
@@ -203,6 +208,7 @@
                 var json = @Html.Raw(Json.Encode(Model));
                 json.HomeScore = homeScore;
                 json.GuestScore = guestScore;
+                json.MatchUpdated = new Date($.now());
                 console.log('json: ' + JSON.stringify(json));
                 $.ajax({
                     url: apiUrl,
@@ -238,6 +244,7 @@
                 var json = @Html.Raw(Json.Encode(Model));
                 json.HomeScore = homeScore;
                 json.GuestScore = guestScore;
+                json.MatchUpdated = new Date($.now());
                 console.log('json: ' + JSON.stringify(json));
                 $.ajax({
                     url: apiUrl,
@@ -273,6 +280,7 @@
                 var json = @Html.Raw(Json.Encode(Model));
                 json.HomeScore = homeScore;
                 json.GuestScore = guestScore;
+                json.MatchUpdated = new Date($.now());
                 console.log('json: ' + JSON.stringify(json));
                 $.ajax({
                     url: apiUrl,
@@ -311,6 +319,44 @@
                 var json = @Html.Raw(Json.Encode(Model));
                 json.HomeScore = homeScore;
                 json.GuestScore = guestScore;
+                json.MatchUpdated = new Date($.now());
+                console.log('json: ' + JSON.stringify(json));
+                $.ajax({
+                    url: apiUrl,
+                    type: 'PUT',
+                    dataType: 'json',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(json),
+                    success: function (data, textStatus, xhr) {
+                        console.log('success: ' + data);
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.log('Error in Operation');
+                        console.log('xhr.status: ' + xhr.status);
+                        console.log('textStatus: ' + textStatus);
+                        console.log('errorThrown: ' + errorThrown);
+                    }
+                });
+                //console.log('data: ' + data);
+
+            });
+
+            $('#matchEnded').click(function () {
+                console.log("#matchEnded was clicked.");
+                //var homeScore = 0;
+                //var guestScore = 0;
+                //homeScore = Number(++homeScore);
+                //var team = "reset";
+                //$('#HomeScore').text(homeScore);
+                //$('#GuestScore').text(guestScore);
+                //console.log("homeScore: " + homeScore + " | guestScore: " + guestScore);
+                //simple.server.sendMessage(homeScore, team, room);
+
+                // save data to api
+                var json = @Html.Raw(Json.Encode(Model));
+                //json.HomeScore = homeScore;
+                //json.GuestScore = guestScore;
+                json.MatchEnded = new Date($.now());
                 console.log('json: ' + JSON.stringify(json));
                 $.ajax({
                     url: apiUrl,

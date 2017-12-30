@@ -14,7 +14,14 @@ namespace ScoreboardVB15.Controllers
 
         public ActionResult Index()
         {
-            return View(db.ScoreboardVBModels.ToList());
+            //var fleets = db.Fleets
+            //      .Where(x => x.FleetID == id &&
+            //                 x.FleetEvents.Any(f => f.Status == true));
+            //var udb = db.ScoreboardVBModels
+            //    .Where(s => s.ScoreboardVBModels.Any(m => m.MatchEnded == null));
+            var scoreboardVBModels = db.ScoreboardVBModels.SqlQuery("Select * from dbo.ScoreboardVBModels Where MatchEnded Is Null").ToList();
+            //return View(db.ScoreboardVBModels.ToList());
+            return View(scoreboardVBModels);
         }
 
         public ActionResult About()

@@ -229,12 +229,19 @@
     <Compile Include="Migrations\201712201945135_AddFeedbackModel.Designer.cs">
       <DependentUpon>201712201945135_AddFeedbackModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712211905262_AddedMatchEnded.cs" />
+    <Compile Include="Migrations\201712211905262_AddedMatchEnded.Designer.cs">
+      <DependentUpon>201712211905262_AddedMatchEnded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\FeedbackModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MatchModels.cs" />
     <Compile Include="Models\ScoreboardVBModels.cs" />
+    <Compile Include="Models\SetModels.cs" />
+    <Compile Include="Models\TeamModels.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -1013,6 +1020,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712201945135_AddFeedbackModel.resx">
       <DependentUpon>201712201945135_AddFeedbackModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712211905262_AddedMatchEnded.resx">
+      <DependentUpon>201712211905262_AddedMatchEnded.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\ScoreboardVB15.Migrations.AddFeedbackModel.resources" />
     <EmbeddedResource Include="obj\Debug\ScoreboardVB15.Migrations.AddNullable.resources" />

@@ -27,6 +27,7 @@ namespace ScoreboardVB15.Models
         public string Set3Winner { get; set; }
         public DateTime? MatchCreated { get; set; }
         public DateTime? MatchUpdated { get; set; }
+        public DateTime? MatchEnded { get; set; }
 
 
         public ScoreboardVBModels()
