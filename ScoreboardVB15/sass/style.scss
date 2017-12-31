@@ -1,6 +1,102 @@
 ﻿/* Your custom styles */
 
-body, html {
-    /*color: #e1bee7;*/
-    color: #f3e5f5;
+
+/* global */
+body {
+    line-height: 28px;
+    font-size: 16px;
+}
+.height-score {
+    height: 100%;
+    overflow: hidden;
+}
+
+.home {
+    h1, h2, h3, h4 {
+        /*color: #e1bee7;*/
+        color: #f3e5f5;
+    }
+}
+
+.score {
+    h1, h2, h3, h4, h5 {
+        /*color: #e1bee7;*/
+        color: #fff;
+    }
+
+    h3 {
+        color: #000;
+    }
+
+    .score-hea {
+        position: fixed;
+        top: 0;
+        height: 70px;
+        width: 100%;
+        color: #fff;
+        background-color: #000;
+        line-height: 22px;
+
+        .burger {
+            /*font-size: 22px;
+            font-weight: 100;*/
+            color: #e0e0e0;
+
+            a, :visited {
+                color: #e0e0e0;
+            }
+        }
+
+        .match-hea {
+            font-size: 14px;
+        }
+
+        .match-name {
+            font-size: 26px;
+        }
+
+        .match-created {
+            font-size: 12px;
+        }
+    }
+
+    .score-footer {
+        position: fixed;
+        bottom: 0;
+        height: 60px;
+        width: 100%;
+        color: #fff;
+        background-color: #000;
+        line-height: 24px;
+
+        .current-set {
+            font-size: 18px;
+            /*font-weight: 500;*/
+        }
+
+        .set-winner {
+            font-size: 13px;
+            /*color: #bdbdbd;*/
+        }
+    }
+
+    .score-content {
+        position: fixed;
+        top: 70px;
+        bottom: 60px;
+        width: 100%;
+        color: #fff;
+
+        .team-hea {
+            font-size: 18px;
+        }
+
+        .team-name {
+            font-size: 40px;
+        }
+
+        .team-score {
+            font-size: 100px;
+        }
+    }
 }

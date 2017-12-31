@@ -1,121 +1,146 @@
 ﻿@model ScoreboardVB15.Models.ScoreboardVBModels
 
 @{
+    Layout = "~/Views/Shared/_LayoutMDB.cshtml";
     ViewBag.Title = "Score";
 }
 
-<h2>Score</h2>
-<h3>@Html.DisplayFor(model => model.MatchName)</h3>
 
-<div class="row">
-    <div class="col-md-6">
-        <h5>@Html.DisplayFor(model => model.HomeTeam)</h5>
-        <h1 id="HomeScore">@Html.DisplayFor(model => model.HomeScore)</h1>
+
+<div class="score container-fluid full-height">
+    <div class="score-hea row purplez lighten-2z">
+        <div class="col text-centerz pt-3">
+            @*<div class="match-hea">Match Name:</div>*@
+            <div class="burger float-right white-textz"><a href="~/Home/Index"><i class="fa fa-bars fa-lg" aria-hidden="true"></i></a></div>
+            <div class="match-name">@Model.MatchName</div>
+            <div class="match-created">Created: @Model.MatchCreated</div>
+        </div>
     </div>
-    <div class="col-md-6">
-        <h5>@Html.DisplayFor(model => model.GuestTeam)</h5>
-        <h1 id="GuestScore">@Html.DisplayFor(model => model.GuestScore)</h1>
+
+    <div class="score-content row">
+        <div class="col-6 d-flex justify-content-around blue">
+            <div class="text-center align-self-center">
+                <div class="team-hea p-2z">Home Team</div>
+                <div class="team-name p-2">@Model.HomeTeam</div>
+                <div id="HomeScore" class="team-score p-5">@Model.HomeScore</div>
+            </div>
+        </div>
+        <div class="col-6 d-flex justify-content-around red">
+            <div class="text-center align-self-center">
+                <div class="team-hea p-2z">Guest Team</div>
+                <div class="team-name p-2">@Model.GuestTeam</div>
+                <div id="GuestScore" class="team-score p-5">@Model.GuestScore</div>
+            </div>
+        </div>
     </div>
+
+    <div class="score-footer row purplez lighten-2z">
+        <div class="col text-center">
+            <div class="current-set pt-2">Current Set: @Model.SetNumber</div>
+            <div class="set-winner">Set 1 Winner: @if (Model.Set1Winner == null) { <span>&mdash;</span> } else { @Model.Set1Winner } <span class="grey-text">&nbsp;|&nbsp;</span> Set 2 Winner: @if (Model.Set2Winner == null) { <span>&mdash;</span> } else { @Model.Set2Winner } <span class="grey-text">&nbsp;|&nbsp;</span> Set 3 Winner: @if (Model.Set3Winner == null) { <span>&mdash;</span> } else { @Model.Set3Winner }</div>
+        </div>
+    </div>
+
+    @*<div>
+            <h4>ScoreboardVBModels</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.MatchName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MatchName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.HomeTeam)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.HomeTeam)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.HomeScore)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.HomeScore)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.GuestTeam)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.GuestTeam)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.GuestScore)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.GuestScore)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.SetNumber)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SetNumber)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Set1Winner)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Set1Winner)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Set2Winner)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Set2Winner)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Set3Winner)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Set3Winner)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.MatchCreated)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MatchCreated)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.MatchUpdated)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MatchUpdated)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>*@
+
 </div>
-
-@*<div>
-    <h4>ScoreboardVBModels</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MatchName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MatchName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.HomeTeam)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HomeTeam)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.HomeScore)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HomeScore)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.GuestTeam)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GuestTeam)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.GuestScore)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GuestScore)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SetNumber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SetNumber)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Set1Winner)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Set1Winner)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Set2Winner)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Set2Winner)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Set3Winner)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Set3Winner)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MatchCreated)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MatchCreated)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MatchUpdated)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MatchUpdated)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>*@
 
 @section scripts {
     <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>

@@ -1,5 +1,70 @@
 ﻿/* Your custom styles */
-body, html {
+/* global */
+body {
+  line-height: 28px;
+  font-size: 16px; }
+
+.height-score {
+  height: 100%;
+  overflow: hidden; }
+
+.home h1, .home h2, .home h3, .home h4 {
   /*color: #e1bee7;*/
   color: #f3e5f5; }
+
+.score h1, .score h2, .score h3, .score h4, .score h5 {
+  /*color: #e1bee7;*/
+  color: #fff; }
+
+.score h3 {
+  color: #000; }
+
+.score .score-hea {
+  position: fixed;
+  top: 0;
+  height: 70px;
+  width: 100%;
+  color: #fff;
+  background-color: #000;
+  line-height: 22px; }
+  .score .score-hea .burger {
+    /*font-size: 22px;
+            font-weight: 100;*/
+    color: #e0e0e0; }
+    .score .score-hea .burger a, .score .score-hea .burger :visited {
+      color: #e0e0e0; }
+  .score .score-hea .match-hea {
+    font-size: 14px; }
+  .score .score-hea .match-name {
+    font-size: 26px; }
+  .score .score-hea .match-created {
+    font-size: 12px; }
+
+.score .score-footer {
+  position: fixed;
+  bottom: 0;
+  height: 60px;
+  width: 100%;
+  color: #fff;
+  background-color: #000;
+  line-height: 24px; }
+  .score .score-footer .current-set {
+    font-size: 18px;
+    /*font-weight: 500;*/ }
+  .score .score-footer .set-winner {
+    font-size: 13px;
+    /*color: #bdbdbd;*/ }
+
+.score .score-content {
+  position: fixed;
+  top: 70px;
+  bottom: 60px;
+  width: 100%;
+  color: #fff; }
+  .score .score-content .team-hea {
+    font-size: 18px; }
+  .score .score-content .team-name {
+    font-size: 40px; }
+  .score .score-content .team-score {
+    font-size: 100px; }
 
