@@ -10,11 +10,11 @@
         <h3 class="text-center">Current Matches</h3>
         @foreach (var item in Model)
         {
-            <div class="text-center"><a href="~/Home/Score/@item.Id" class="white-text">@item.MatchName</a>@*@Html.ActionLink(@item.MatchName, "Score", new { id = item.Id })*@</div>
+            <div class="text-center"><a href="~/Home/Score/@item.Id" class="white-textz">@item.MatchName</a>@*@Html.ActionLink(@item.MatchName, "Score", new { id = item.Id })*@</div>
         }
     </div>
 
-    <div class="text-center p-2 fixed-bottom">
+    <div class="text-center p-4 fixed-bottomz">
         <div><a href="~/ScoreboardVBModels/Create" class="btn btn-outline-secondary waves-effect white">Create New Match</a></div>
     </div>
 

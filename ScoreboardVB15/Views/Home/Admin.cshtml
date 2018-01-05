@@ -1,0 +1,16 @@
+﻿@model IEnumerable<ScoreboardVB15.Models.ScoreboardVBModels>
+@{
+    Layout = "~/Views/Shared/_LayoutMDB.cshtml";
+    ViewBag.Title = "Admin";
+}
+<div class="home container-fluid purple lighten-2 full-height">
+    <div class="text-center p-4"><h1><img src="https://png.icons8.com/volleyball/ios/50/f3e5f5">&nbsp;ScoreboardVB</h1></div>
+    <div>
+        <h3 class="text-center">Matches for Admin</h3>
+        @foreach (var item in Model)
+        {
+            <div class="text-center"><a href="~/Home/KeepScore/@item.Id" class="white-textz p-2">@item.MatchName</a></div>
+        }
+    </div>
+</div>
+

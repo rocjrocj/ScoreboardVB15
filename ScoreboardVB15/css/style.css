@@ -4,13 +4,20 @@ body {
   line-height: 28px;
   font-size: 16px; }
 
+a, a:visited {
+  color: #f3e5f5; }
+
+a:hover {
+  text-decoration: underline; }
+
 .height-score {
   height: 100%;
   overflow: hidden; }
 
 .home h1, .home h2, .home h3, .home h4 {
   /*color: #e1bee7;*/
-  color: #f3e5f5; }
+  /*color: #f3e5f5;*/
+  color: #fff; }
 
 .score h1, .score h2, .score h3, .score h4, .score h5 {
   /*color: #e1bee7;*/
@@ -27,6 +34,8 @@ body {
   color: #fff;
   background-color: #000;
   line-height: 22px; }
+  .score .score-hea a, .score .score-hea a:visited {
+    color: #e1bee7; }
   .score .score-hea .burger {
     /*font-size: 22px;
             font-weight: 100;*/
@@ -67,4 +76,7 @@ body {
     font-size: 40px; }
   .score .score-content .team-score {
     font-size: 100px; }
+    .score .score-content .team-score .fa {
+      font-size: 30px;
+      vertical-align: middle; }
 

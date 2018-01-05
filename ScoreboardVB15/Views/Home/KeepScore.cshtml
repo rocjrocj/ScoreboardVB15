@@ -1,8 +1,54 @@
 ﻿@model ScoreboardVB15.Models.ScoreboardVBModels
 
 @{
+    Layout = "~/Views/Shared/_LayoutMDB.cshtml";
     ViewBag.Title = "KeepScore";
 }
+
+<div class="score container-fluid full-height">
+    <div class="score-hea row purplez lighten-2z">
+        <div class="col text-centerz pt-3">
+            @*<div class="match-hea">Match Name:</div>*@
+            <div class="burger float-right white-textz"><a href="~/Home/Index"><i class="fa fa-bars fa-lg" aria-hidden="true"></i></a></div>
+            <div class="match-name">@Model.MatchName</div>
+            <div class="match-created">Created: @Model.MatchCreated</div>
+        </div>
+    </div>
+
+    <div class="score-content admin row">
+        <div class="col-6 d-flex justify-content-around blue">
+            <div class="text-center align-self-center">
+                <div class="team-hea p-2z">Home Team</div>
+                <div class="team-name p-2">@Model.HomeTeam</div>
+                <div id="HomeScore" class="team-score pt-5"><i class="fa fa-minus-square" aria-hidden="true"></i> @Model.HomeScore <i class="fa fa-plus-square" aria-hidden="true"></i></div>
+            </div>
+        </div>
+        <div class="col-6 d-flex justify-content-around red">
+            <div class="text-center align-self-center">
+                <div class="team-hea p-2z">Guest Team</div>
+                <div class="team-name p-2">@Model.GuestTeam</div>
+                <div id="GuestScore" class="team-score pt-5"><i class="fa fa-minus-square" aria-hidden="true"></i> @Model.GuestScore <i class="fa fa-plus-square" aria-hidden="true"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="score-footer row purplez lighten-2z">
+        <div class="col text-center">
+            <a href="#" class="btn btn-primary btn-sm">Edit Match</a>
+            @*<div class="current-set pt-2">Current Set: @Model.SetNumber</div>
+            <div class="set-winner">Set 1 Winner: @if (Model.Set1Winner == null)
+            { <span>&mdash;</span> }
+            else
+            { @Model.Set1Winner } <span class="grey-text">&nbsp;|&nbsp;</span> Set 2 Winner: @if (Model.Set2Winner == null)
+            { <span>&mdash;</span> }
+            else
+            { @Model.Set2Winner } <span class="grey-text">&nbsp;|&nbsp;</span> Set 3 Winner: @if (Model.Set3Winner == null)
+            { <span>&mdash;</span> }
+            else
+            { @Model.Set3Winner }</div>*@
+        </div>
+    </div>
+</div>
 
 <h2>KeepScore</h2>
 <h3>@Html.DisplayFor(model => model.MatchName)</h3>

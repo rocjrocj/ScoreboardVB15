@@ -6,6 +6,12 @@ body {
     line-height: 28px;
     font-size: 16px;
 }
+a, a:visited {
+    color: #f3e5f5;
+}
+a:hover {
+    text-decoration: underline;
+}
 .height-score {
     height: 100%;
     overflow: hidden;
@@ -14,7 +20,8 @@ body {
 .home {
     h1, h2, h3, h4 {
         /*color: #e1bee7;*/
-        color: #f3e5f5;
+        /*color: #f3e5f5;*/
+        color: #fff;
     }
 }
 
@@ -36,6 +43,10 @@ body {
         color: #fff;
         background-color: #000;
         line-height: 22px;
+
+        a, a:visited {
+            color: #e1bee7;
+        }
 
         .burger {
             /*font-size: 22px;
@@ -97,6 +108,11 @@ body {
 
         .team-score {
             font-size: 100px;
+
+            .fa {
+                font-size: 30px;
+                vertical-align: middle;
+            }
         }
     }
 }

@@ -24,6 +24,12 @@ namespace ScoreboardVB15.Controllers
             return View(scoreboardVBModels);
         }
 
+        public ActionResult Admin()
+        {
+            var scoreboardVBModels = db.ScoreboardVBModels.SqlQuery("Select * from dbo.ScoreboardVBModels Where MatchEnded Is Null").ToList();
+            return View(scoreboardVBModels);
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
